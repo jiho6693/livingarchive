@@ -79,12 +79,12 @@
         var selectedComponent = null; // Variable to store the selected component
 
         function startGame() {
-            for (let i = 0; i < 50; i++) {
+            for (let i = 0; i < 80; i++) {
                 // Creating 5 components with random positions, widths, heights, and text
                 let x = Math.random() * (innerWidth - 20) + 10; // Adjusted to stay within the canvas
                 let y = Math.random() * (innerHeight - 20) + 10; // Adjusted to stay within the canvas
-                let width = Math.random() * 500 + 10; // Random width between 20 and 520
-                let height = Math.random() * 500 + 10; // Random height between 20 and 420
+                let width = Math.random() * 500 + 50; // Random width between 20 and 520
+                let height = Math.random() * 500 + 50; // Random height between 20 and 420
                 let text = 0;
                 myGamePieces.push(new component(width, height, "rgb(0, 0, 255)", x, y, text));
             }
