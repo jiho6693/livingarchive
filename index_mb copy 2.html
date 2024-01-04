@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Kenia&family=Oswald:wght@500&family=Sulphur+Point:wght@700&family=Teko:wght@500&display=swap');
+
+    body {
+      margin: 0;
+      color: white;
+      font-family: Helvetica, Sans-Serif;
+      font-size: 1rem;
+    }
+
+    .menu {
+      margin-top: 3%;
+      position: fixed;
+      text-align: center;
+      left: 5%;
+      white-space: nowrap;
+     
+      z-index: 1; /* Ensure the menu is in front of the blurred canvas */
+    }
+
+    .menu1, .menu2, .menu3 {
+      margin-top: 10%;
+      position: fixed;
+      text-align: center;
+      white-space: nowrap;
+    
+      cursor: pointer;
+      z-index: 2; /* Ensure the menu items are on top */
+    }
+
+    .menu1 {
+      left: 5%;
+    }
+
+    .menu2 {
+      left: 5%;
+      top: 4%;
+    }
+
+    .menu3 {
+      left: 5%;
+      top: 8%;
+    }
+
+    #canvas-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0; /* Lower z-index for the canvas container */
+    }
+
+    #canvas-container canvas {
+      filter: blur(0); /* Initialize with no blur */
+    }
+
+    .syllabus, .schedule, .archive {
+      white-space: pre-line;
+      position: fixed;
+      top: 15%;
+      left: 5%;
+      right: 3%;
+      
+      display: none;
+      z-index: 3; /* Ensure draggable content is on top */
+    }
+
+    .scrollable-content {
+      max-height: 70vh; /* Adjust the height based on your needs */
+      overflow-y: auto;
+    }
+  </style>
+</head>
+<body>
+
+<div class="menu">
+  Unlayeting Materials : Living Archive
+</div>
+
+<div class="menu1" onclick="toggleBlurAndShowContent('syllabus')">
+  Syllabus
+</div>
+
+<div class="menu2" onclick="toggleBlurAndShowContent('schedule')">
+  Schedule
+</div>
+
+<div class="menu3" onclick="toggleBlurAndShowContent('archive')">
+  Archive
+</div>
+
+<div id="canvas-container">
+  <!-- p5 canvas will be created here -->
+</div>
+
+<div class="syllabus" id="syllabus">
+  <div class="scrollable-content">
+  o
+  </div>
+</div>
+
+<div class="draggable-content schedule" id="schedule">
+ <div class="scrollable-content"></div>
+  Schedule Content
+ </div>
+</div>
+
+<div class="draggable-content archive" id="archive">
+ <div class="scrollable-content"></div>
+  Achedule Content
+ </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+<script>
+  let motion = false;
+  let ios = false;
+  let r, g, b;
+//   let visibleContent = null;
+
+  if (typeof DeviceMotionEvent.requestPermission === 'function') {
+    document.body.addEventListener('click', function() {
+      DeviceMotionEvent.requestPermission()
+        .then(function() {
+          console.log('DeviceMotionEvent enabled');
+          motion = true;
+          ios = true;
+        })
+        .catch(function(error) {
+          console.warn('DeviceMotionEvent not enabled', error);
+        })
+    
+    })
+  } else {
+    
+  }
+
+  
+
+  function setup() {
+    createCanvas(windowWidth, windowHeight).parent('canvas-container');
+    r = random(0, 255);
+    g = random(0, 255);
+    b = random(0, 255);
+    background(0, 0, 255);
+  }
+
+  function draw() {
+    let yMotion = round(0 + rotationX * 10);
+    let xMotion = round(0 + rotationY * 10);
+
+    fill(b, r, g);
+    ellipse(xMotion, yMotion, 72, 72);
+  }
+
+//   function toggleBlurAndShowContent(contentId) {
+//     // Hide the previously visible content
+//     if (visibleContent) {
+//       document.getElementById(visibleContent).style.display = 'none';
+//     }
+
+//     if (visibleContent === contentId) {
+//       // Clicking the same menu item again, hide the content and remove blur
+//       document.getElementById('canvas-container').style.filter = 'none';
+//       visibleContent = null;
+//     } else {
+//       // Clicking a different menu item, apply blur and show the corresponding content
+//       document.getElementById('canvas-container').style.filter = 'blur(10px)';
+//       document.getElementById(contentId).style.display = 'block';
+//       visibleContent = contentId;
+//     }
+//   }
+
+  
+</script>
+
+</body>
+</html>
