@@ -120,7 +120,7 @@
   let motion = false;
   let ios = false;
   let r, g, b;
-  let visibleContent = null;
+//   let visibleContent = null;
 
   if (typeof DeviceMotionEvent.requestPermission === 'function') {
     document.body.addEventListener('click', function() {
@@ -157,23 +157,23 @@
     ellipse(xMotion, yMotion, 72, 72);
   }
 
-  function toggleBlurAndShowContent(contentId) {
-    // Hide the previously visible content
-    if (visibleContent) {
-      document.getElementById(visibleContent).style.display = 'none';
-    }
+//   function toggleBlurAndShowContent(contentId) {
+//     // Hide the previously visible content
+//     if (visibleContent) {
+//       document.getElementById(visibleContent).style.display = 'none';
+//     }
 
-    if (visibleContent === contentId) {
-      // Clicking the same menu item again, hide the content and remove blur
-      document.getElementById('canvas-container').style.filter = 'none';
-      visibleContent = null;
-    } else {
-      // Clicking a different menu item, apply blur and show the corresponding content
-      document.getElementById('canvas-container').style.filter = 'blur(10px)';
-      document.getElementById(contentId).style.display = 'block';
-      visibleContent = contentId;
-    }
-  }
+//     if (visibleContent === contentId) {
+//       // Clicking the same menu item again, hide the content and remove blur
+//       document.getElementById('canvas-container').style.filter = 'none';
+//       visibleContent = null;
+//     } else {
+//       // Clicking a different menu item, apply blur and show the corresponding content
+//       document.getElementById('canvas-container').style.filter = 'blur(10px)';
+//       document.getElementById(contentId).style.display = 'block';
+//       visibleContent = contentId;
+//     }
+//   }
 
   
 </script>
