@@ -121,11 +121,10 @@
         })
         .catch(function(error) {
           console.warn('DeviceMotionEvent not enabled', error);
-        })
-    
-    })
+        });
+    });
   } else {
-  
+    // TODO: Add detection for hardware for other devices
   }
 
   function setup() {
@@ -136,15 +135,12 @@
     background(0, 0, 255);
   }
 
-  function draw() {
-    
-    
-    let yMotion = round(0 + rotationX * 10)
-    let xMotion = round(0 + rotationY * 10)
+  function deviceMoved() {
+    let yMotion = round(0 + rotationX * 10);
+    let xMotion = round(0 + rotationY * 10);
 
     fill(b, r, g);
     ellipse(xMotion, yMotion, 72, 72);
-    
   }
 </script>
 
