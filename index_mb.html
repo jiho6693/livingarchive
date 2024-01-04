@@ -38,12 +38,12 @@
 
     .menu2 {
       left: 5%;
-      top: 3%;
+      top: 4%;
     }
 
     .menu3 {
       left: 5%;
-      top: 6%;
+      top: 8%;
     }
 
     #canvas-container {
@@ -57,7 +57,7 @@
       filter: blur(0); /* Initialize with no blur */
     }
 
-    .syllabus {
+    .syllabus, .schedule, .archive {
       white-space: pre-line;
       position: fixed;
       top: 15%;
@@ -69,7 +69,7 @@
     }
 
     .scrollable-content {
-      max-height: 80vh; /* Adjust the height based on your needs */
+      max-height: 60vh; /* Adjust the height based on your needs */
       overflow-y: auto;
     }
   </style>
@@ -123,7 +123,7 @@
          Students will work with practical tools (camera, sound recorder, 3D scanner etc) and learn techniques for working with archival materials. Overall, this course will equip you to develop technical literacy for learning new tools to use archives as a medium for innovative and socially impactful art work.
     
     Student Learning Outcomes:
-    
+
     ● Share independent research through small in-class workshops
     ● Develop critical thinking skills for engaging with archival materials
     ● Foundational understanding of each tools
@@ -134,11 +134,15 @@
 </div>
 
 <div class="draggable-content schedule" id="schedule">
+ <div class="scrollable-content"></div>
   Schedule Content
+ </div>
 </div>
 
 <div class="draggable-content archive" id="archive">
-  Archive Content
+ <div class="scrollable-content"></div>
+  Achedule Content
+ </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
