@@ -187,6 +187,22 @@
     // TODO: Add detection for hardware for other devices
   }
 
+  if (typeof DeviceMotionEvent.requestPermission === 'function') {
+    document.body.addEventListener('click', function() {
+      DeviceMotionEvent.requestPermission()
+        .then(function() {
+          console.log('DeviceMotionEvent enabled');
+          motion = true;
+          ios = true;
+        })
+        .catch(function(error) {
+          console.warn('DeviceMotionEvent not enabled', error);
+        });
+    });
+  } else {
+    // TODO: Add detection for hardware for other devices
+  }
+
   function setup() {
     createCanvas(windowWidth, windowHeight).parent('canvas-container');
     r = random(0, 255);
@@ -196,8 +212,8 @@
   }
 
   function draw() {
-    let yMotion = round(0 + rotationX * 10)
-    let xMotion = round(0 + rotationY * 10)
+    let yMotion = round(0 + rotationX * 10);
+    let xMotion = round(0 + rotationY * 10);
 
     fill(b, r, g);
     ellipse(xMotion, yMotion, 72, 72);
