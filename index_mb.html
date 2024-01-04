@@ -13,12 +13,12 @@
     }
 
     .menu {
-      margin-top: 2%;
+      margin-top: 3%;
       position: fixed;
       text-align: center;
       left: 5%;
       white-space: nowrap;
-      font-size: 1.1rem;
+      font-size: 1rem;
       z-index: 1; /* Ensure the menu is in front of the blurred canvas */
     }
 
@@ -27,7 +27,7 @@
       position: fixed;
       text-align: center;
       white-space: nowrap;
-      font-size: 1.1rem;
+      font-size: 1rem;
       cursor: pointer;
       z-index: 2; /* Ensure the menu items are on top */
     }
@@ -37,11 +37,13 @@
     }
 
     .menu2 {
-      left: 40%;
+      left: 5%;
+      top: 3%;
     }
 
     .menu3 {
-      left: 80%;
+      left: 5%;
+      top: 6%;
     }
 
     #canvas-container {
@@ -56,12 +58,19 @@
     }
 
     .syllabus {
-      display: none;
+      white-space: pre-line;
       position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 2rem;
+      top: 15%;
+      left: 5%;
+      right: 3%;
+      font-size: 1rem;
+      display: none;
+      z-index: 3; /* Ensure draggable content is on top */
+    }
+
+    .scrollable-content {
+      max-height: 80vh; /* Adjust the height based on your needs */
+      overflow-y: auto;
     }
   </style>
 </head>
@@ -71,15 +80,15 @@
   Unlayeting Materials : Living Archive
 </div>
 
-<div class="menu1" onclick="toggleBlurAndShowSyllabus()">
+<div class="menu1" onclick="toggleBlurAndShowContent('syllabus')">
   Syllabus
 </div>
 
-<div class="menu2">
+<div class="menu2" onclick="toggleBlurAndShowContent('schedule')">
   Schedule
 </div>
 
-<div class="menu3">
+<div class="menu3" onclick="toggleBlurAndShowContent('archive')">
   Archive
 </div>
 
@@ -88,7 +97,48 @@
 </div>
 
 <div class="syllabus" id="syllabus">
-  asdfasdf
+  <div class="scrollable-content">
+    Course Information:
+
+    Wintersession 2024 / 3 Credits
+    Course Number: DM 1850-101
+    Class meeting time and location:  8:00AM-1:00PM (M,T,W), 4th floor of the CIT Building
+    Course Website: TBD
+    Pre-or-co-requisites : n/a
+    Instructor Name: Jiho Park, So Jung Yoon
+    Office Hours: TBD
+    
+    Contact Information:
+
+    Jiho Park | Digital+Media MFA | +401 230 4346 | jpark43@risd.edu
+    So Jung Yoon | Graphic Design MFA | +401 226 3129 | syoon09@risd.edu
+    
+    Course Description:
+    
+    Archives are repositories of primary sources that document the human experience, from official records to personal papers, photographs, audiovisual recordings, and born-digital materials. In the past, the term "archive" was primarily used in an objective sense as a form of documentation. However, contemporary artists now utilize archives as frameworks, processes, and methods for their artwork, even questioning the very essence of objectivity. This course is an introduction to creative approaches to working with archives. Students will explore how archives can be transformed into a medium for artistic work through the study of diverse methodologies and practices. It will provide an overview of fundamental archive-related concepts and will delve into the use of different tools and methods for interpreting archives in unconventional and innovative ways.
+    
+    Course Goals/Objectives:
+    
+    This course explores the role of archives in both digital and physical environments and their increasing importance in art work. Students will learn about the process of documentation, digitization, metadata, and cataloging, and will expand the range of materials in the course, focusing on the creative and research potential of archives as a medium for art work.
+         Students will work with practical tools (camera, sound recorder, 3D scanner etc) and learn techniques for working with archival materials. Overall, this course will equip you to develop technical literacy for learning new tools to use archives as a medium for innovative and socially impactful art work.
+    
+    Student Learning Outcomes:
+    
+    ● Share independent research through small in-class workshops
+    ● Develop critical thinking skills for engaging with archival materials
+    ● Foundational understanding of each tools
+    ● Learn practical tools and techniques for documenting, digitizing, and cataloging archives
+    ● Explore the creative and research potential of archives as a medium for art work
+    ● Develop digital skills and competencies for working with archival materials using various tools
+  </div>
+</div>
+
+<div class="draggable-content schedule" id="schedule">
+  Schedule Content
+</div>
+
+<div class="draggable-content archive" id="archive">
+  Archive Content
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
@@ -96,18 +146,24 @@
   let motion = false;
   let ios = false;
   let r, g, b;
-  let syllabusVisible = false;
+  let visibleContent = null;
 
-  function toggleBlurAndShowSyllabus() {
-    syllabusVisible = !syllabusVisible;
-
-    if (syllabusVisible) {
-      document.getElementById('canvas-container').style.filter = 'blur(5px)';
-    } else {
-      document.getElementById('canvas-container').style.filter = 'none';
+  function toggleBlurAndShowContent(contentId) {
+    // Hide the previously visible content
+    if (visibleContent) {
+      document.getElementById(visibleContent).style.display = 'none';
     }
 
-    document.getElementById('syllabus').style.display = syllabusVisible ? 'block' : 'none';
+    if (visibleContent === contentId) {
+      // Clicking the same menu item again, hide the content and remove blur
+      document.getElementById('canvas-container').style.filter = 'none';
+      visibleContent = null;
+    } else {
+      // Clicking a different menu item, apply blur and show the corresponding content
+      document.getElementById('canvas-container').style.filter = 'blur(10px)';
+      document.getElementById(contentId).style.display = 'block';
+      visibleContent = contentId;
+    }
   }
 
   if (typeof DeviceMotionEvent.requestPermission === 'function') {
@@ -115,7 +171,6 @@
       DeviceMotionEvent.requestPermission()
         .then(function() {
           console.log('DeviceMotionEvent enabled');
-
           motion = true;
           ios = true;
         })
@@ -136,12 +191,8 @@
   }
 
   function draw() {
-    // Empty draw function
-  }
-
-  function deviceMoved() {
-    let yMotion = round(0 + accelerationX * 10);
-    let xMotion = round(0 + accelerationY * 10);
+    let yMotion = round(0 + rotationX * 10)
+    let xMotion = round(0 + rotationY * 10)
 
     fill(b, r, g);
     ellipse(xMotion, yMotion, 72, 72);
