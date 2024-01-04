@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+    }
+
+    .menu{
+        position:fixed;
+        text-align: left;
+    }
+
+    .menu img{
+        width:20%;
+    }
+  </style>
+</head>
+<body>
+
+    <div class="menu">
+        <img src="icone.jpg">
+    </div>
+
+<script>
+  let motion = false;
+  let ios = false;
+  let r, g, b;
+  let sizeSlider;
+
+  // Essential code for iOS 13 and above. 
+  // A click is needed for the device to request permission 
+  if (typeof DeviceMotionEvent.requestPermission === 'function') {
+    document.body.addEventListener('click', function() {
+      DeviceMotionEvent.requestPermission()
+        .then(function() {
+          console.log('DeviceMotionEvent enabled');
+          motion = true;
+          ios = true;
+        })
+        .catch(function(error) {
+          console.warn('DeviceMotionEvent not enabled', error);
+        });
+    });
+  } else {
+    // We are not on iOS 13 and above
+    // TODO: Add detection for hardware for other devices
+    // if(got the hardware) {
+    //   motion = true;
+    // }
+  }
+
+  function setup() {
+    createCanvas(windowWidth, windowHeight);
+    r = random(0, 255);
+    g = random(0, 255);
+    b = random(0, 255);
+    background(r, g, b);
+    sizeSlider = createSlider(0, 255, 100);
+    sizeSlider.position((windowWidth - sizeSlider.width) / 2, height - 40);
+  }
+
+  function draw() {
+    // Clear the background on each frame
+    let yMotion = round(0 + rotationX * 10)
+    let xMotion = round(0 + rotationY * 10)
+
+    // Draw ellipse at mouse position
+    fill(b, r, g);
+    ellipse(xMotion, yMotion, sizeSlider.value());
+  }
+</script>
+
+<!-- 웹에 공유되어 있는 라이브러리 불러오기 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+
+</body>
+</html>

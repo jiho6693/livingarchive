@@ -4,34 +4,112 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Kenia&family=Oswald:wght@500&family=Sulphur+Point:wght@700&family=Teko:wght@500&display=swap');
+
     body {
       margin: 0;
+      color: white;
+      font-family: Helvetica, Sans-Serif;
     }
 
-    .menu{
-        position:fixed;
-        text-align: center;
+    .menu {
+      margin-top: 2%;
+      position: fixed;
+      text-align: center;
+      left: 5%;
+      white-space: nowrap;
+      font-size: 1.1rem;
+      z-index: 1; /* Ensure the menu is in front of the blurred canvas */
     }
 
-    .menu img{
-        width:20%;
+    .menu1, .menu2, .menu3 {
+      margin-top: 10%;
+      position: fixed;
+      text-align: center;
+      white-space: nowrap;
+      font-size: 1.1rem;
+      cursor: pointer;
+      z-index: 2; /* Ensure the menu items are on top */
+    }
+
+    .menu1 {
+      left: 5%;
+    }
+
+    .menu2 {
+      left: 40%;
+    }
+
+    .menu3 {
+      left: 80%;
+    }
+
+    #canvas-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0; /* Lower z-index for the canvas container */
+    }
+
+    #canvas-container canvas {
+      filter: blur(0); /* Initialize with no blur */
+    }
+
+    .syllabus {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2rem;
     }
   </style>
 </head>
 <body>
 
-    <div class="menu">
-        <img src="icone.jpg">
-    </div>
+<div class="menu">
+  Unlayeting Materials : Living Archive
+</div>
 
+<div class="menu1" onclick="toggleBlurAndShowSyllabus()">
+  Syllabus
+</div>
+
+<div class="menu2">
+  Schedule
+</div>
+
+<div class="menu3">
+  Archive
+</div>
+
+<div id="canvas-container">
+  <!-- p5 canvas will be created here -->
+</div>
+
+<div class="syllabus" id="syllabus">
+  asdfasdf
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
 <script>
   let motion = false;
   let ios = false;
   let r, g, b;
-  let sizeSlider;
+  let syllabusVisible = false;
 
-  // Essential code for iOS 13 and above. 
-  // A click is needed for the device to request permission 
+  function toggleBlurAndShowSyllabus() {
+    syllabusVisible = !syllabusVisible;
+
+    if (syllabusVisible) {
+      document.getElementById('canvas-container').style.filter = 'blur(5px)';
+    } else {
+      document.getElementById('canvas-container').style.filter = 'none';
+    }
+
+    document.getElementById('syllabus').style.display = syllabusVisible ? 'block' : 'none';
+  }
+
   if (typeof DeviceMotionEvent.requestPermission === 'function') {
     document.body.addEventListener('click', function() {
       DeviceMotionEvent.requestPermission()
@@ -45,36 +123,25 @@
         });
     });
   } else {
-    // We are not on iOS 13 and above
     // TODO: Add detection for hardware for other devices
-    // if(got the hardware) {
-    //   motion = true;
-    // }
   }
 
   function setup() {
-    createCanvas(windowWidth, windowHeight);
+    createCanvas(windowWidth, windowHeight).parent('canvas-container');
     r = random(0, 255);
     g = random(0, 255);
     b = random(0, 255);
-    background(r, g, b);
-    sizeSlider = createSlider(0, 255, 100);
-    sizeSlider.position((windowWidth - sizeSlider.width) / 2, height - 40);
+    background(0, 0, 255);
   }
 
   function draw() {
-    // Clear the background on each frame
     let yMotion = round(0 + rotationX * 10)
     let xMotion = round(0 + rotationY * 10)
 
-    // Draw ellipse at mouse position
     fill(b, r, g);
-    square(xMotion, yMotion, sizeSlider.value());
+    ellipse(xMotion, yMotion, 100, 100);
   }
 </script>
-
-<!-- 웹에 공유되어 있는 라이브러리 불러오기 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
 
 </body>
 </html>
