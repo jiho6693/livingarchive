@@ -115,7 +115,7 @@
       DeviceMotionEvent.requestPermission()
         .then(function() {
           console.log('DeviceMotionEvent enabled');
-  
+
           motion = true;
           ios = true;
         })
@@ -135,9 +135,13 @@
     background(0, 0, 255);
   }
 
+  function draw() {
+    // Empty draw function
+  }
+
   function deviceMoved() {
-    let yMotion = round(0 + rotationX * 10);
-    let xMotion = round(0 + rotationY * 10);
+    let yMotion = round(0 + accelerationX * 10);
+    let xMotion = round(0 + accelerationY * 10);
 
     fill(b, r, g);
     ellipse(xMotion, yMotion, 72, 72);
