@@ -18,6 +18,9 @@
       font-size: 1.5rem;
     }
 
+  
+
+
     .menu {
       margin-top: 1.5%;
       position: fixed;
@@ -39,11 +42,11 @@
     }
 
     .menu1 {
-      right: 30%;
+      right: 20%;
     }
 
     .menu2 {
-      right: 15%;
+      right: 10%;
       
     }
 
@@ -60,7 +63,7 @@
     }
 
     #canvas-container canvas {
-      filter: blur(50px); /* Initialize with no blur */
+      filter: blur(30px); /* Initialize with no blur */
     }
 
     .syllabus, .schedule, .archive {
@@ -84,7 +87,7 @@
 <body>
 
 <div class="menu">
-  Unlayeting Materials : Living Archive
+Unlayering Narratives : Living Archive
 </div>
 
 <div class="menu1" onclick="toggleBlurAndShowContent('syllabus')">
@@ -171,7 +174,7 @@
       visibleContent = null;
     } else {
       // Clicking a different menu item, apply blur and show the corresponding content
-      document.getElementById('canvas-container').style.filter = 'blur(10px)';
+      document.getElementById('canvas-container').style.filter = 'blur(50px)';
       document.getElementById(contentId).style.display = 'block';
       visibleContent = contentId;
     }
