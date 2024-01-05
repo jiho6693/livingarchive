@@ -27,6 +27,7 @@
       z-index: 4;
       font-size: 1rem;
       font-family: "input-sans", sans-serif;
+      transition: opacity 1s ease-in-out;
     }
 
     .menu {
@@ -174,7 +175,6 @@
 
 <script src="p5.min.js"></script>
 <script>
-
   let motion = false;
   let ios = false;
   let r, g, b;
@@ -224,8 +224,12 @@
   function startApplication() {
     requestDeviceMotionPermission();
     setStartButtonBackgroundColor(); // Set startButton background color
-    // Hide the button after it's clicked
-    document.getElementById('startButton').style.display = 'none';
+
+    // Hide the button after it's clicked with a slow fade
+    document.getElementById('startButton').style.opacity = '0';
+    setTimeout(function () {
+      document.getElementById('startButton').style.display = 'none';
+    }, 1000); // Adjust the duration based on your preference
   }
 
   // Your existing setup and draw functions remain unchanged
@@ -236,7 +240,6 @@
     b = random(0, 255);
     background(r, g, b);
     setBodyBackgroundColor(); // Set body background color
-    setStartButtonBackgroundColor();
   }
 
   function draw() {
