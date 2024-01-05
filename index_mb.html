@@ -8,7 +8,7 @@
     @import url('https://fonts.googleapis.com/css2?family=Kenia&family=Oswald:wght@500&family=Sulphur+Point:wght@700&family=Teko:wght@500&display=swap');
 
     body {
-      background-color: blue;
+      
       margin: 0;
       color: white;
       font-family: "input-sans", sans-serif;
@@ -52,17 +52,17 @@
 
     .menu1 {
       left: 5%;
-      top: 89%;
+      top: 88%;
     }
 
     .menu2 {
       left: 5%;
-      top: 95%;
+      top: 91.5%;
     }
 
     .menu3 {
       left: 5%;
-      top: 92%;
+      top: 95%;
     }
 
     #canvas-container {
@@ -195,6 +195,10 @@
     }
   }
 
+  function setBodyBackgroundColor() {
+    document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+  }
+
   function requestDeviceMotionPermission() {
     if (typeof DeviceMotionEvent.requestPermission === 'function') {
       DeviceMotionEvent.requestPermission()
@@ -223,6 +227,7 @@
     g = random(0, 255);
     b = random(0, 255);
     background(r, g, b);
+    setBodyBackgroundColor(); // Set body background color
   }
 
   function draw() {
