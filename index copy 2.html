@@ -24,59 +24,43 @@
 
     .menu {
       font-size: 1.5rem;
-      bottom: 5%;
+      margin-top: 1.5%;
       position: fixed;
       /* text-align: center; */
-      left: 2.5%;
+      left: 2%;
       white-space: nowrap;
      
       z-index: 1; /* Ensure the menu is in front of the blurred canvas */
     }
 
-    .menu1, .menu2, .menu3, .menu4  {
+    .menu1, .menu2, .menu3 {
       font-size: 24wh;
       margin-top: 50%;
       position: fixed;
       text-align: center;
       white-space: nowrap;
       right: 0.25%;
-      /* transform: rotate(-90deg); */
-      bottom: 94%;
-
+    
       cursor: pointer;
       z-index: 2; /* Ensure the menu items are on top */
     }
 
-
-
-
     .menu1 {
-      right:25%;
-    
-  
+      transform: rotate(-90deg);
+      bottom:25%;
       
     }
 
     .menu2 {
-      right:11%;
-    
-    
+      transform: rotate(-90deg);
+      bottom:10%;
     
       
     }
 
     .menu3 {
-      right:18%;
-     
-    
-     
-     
-    }
-
-    .menu4 {
-      right:4%;
-     
-    
+      transform: rotate(-90deg);
+      bottom:60%;
      
      
     }
@@ -146,14 +130,8 @@
 </div>
 
 <div class="menu3" onclick="toggleBlurAndShowContent('archive')">
-  Notepad
-</div>
-
-<div class="menu4" onclick="toggleBlurAndShowContent('archive')">
   Archive
 </div>
-
-
 
 <div id="canvas-container">
   <!-- p5 canvas will be created here -->
