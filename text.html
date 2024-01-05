@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전체 화면에 글자 쓰기</title>
+</head>
+<body>
+    <div id="display-area">
+        <p>여기에 글자를 입력하세요.</p>
+    </div>
+
+    <script>
+        // 사용자로부터 입력 받기
+        var userInput = prompt('화면에 표시할 글자를 입력하세요.');
+
+        // 입력 받은 글자를 화면에 표시
+        document.getElementById('display-area').innerHTML = '<p>' + userInput + '</p>';
+    </script>
+</body>
+</html>
