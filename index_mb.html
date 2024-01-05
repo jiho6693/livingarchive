@@ -13,7 +13,7 @@
       color: white;
       font-family: "input-sans", sans-serif;
      
-      font-size: 1rem;
+   
     }
 
     #startButton {
@@ -28,8 +28,9 @@
     }
 
     .menu {
-      margin-top: 3%;
+      margin-top: 5%;
       position: fixed;
+      font-size: 1rem;
       
       left: 5%;
       white-space: nowrap;
@@ -38,7 +39,8 @@
     }
 
     .menu1, .menu2, .menu3 {
-      margin-top: 16%;
+      font-size: 1rem;
+      margin-top: 18%;
       position: fixed;
       text-align: center;
       white-space: nowrap;
@@ -73,18 +75,20 @@
     }
 
     .syllabus, .schedule, .archive {
+      font-size: 0.9rem;
       white-space: pre-line;
       position: fixed;
-      top: 15%;
-      left: 5%;
-      right: 3%;
+      top: 17%;
+      left: 7%;
+      right: 7%;
       
       display: none;
       z-index: 3; /* Ensure draggable content is on top */
     }
 
     .scrollable-content {
-      max-height: 70vh; /* Adjust the height based on your needs */
+      max-height: 65vh;
+       /* Adjust the height based on your needs */
       overflow-y: auto;
     }
   </style>
@@ -92,8 +96,8 @@
 <body>
 
 <div class="menu">
-  Unlayering Narratives :
-  <br>Living Archive
+  Unlayering Narratives 
+  <br>: Living Archive
 </div>
 
 <div class="menu1" onclick="toggleBlurAndShowContent('syllabus')">
@@ -113,8 +117,7 @@
 </div>
 
 <div class="syllabus" id="syllabus">
-  <div class="scrollable-content">
-    Course Information:
+  <div class="scrollable-content"> Course Information:
 
     Wintersession 2024 / 3 Credits
     Course Number: DM 1850-101
