@@ -17,6 +17,7 @@
     }
 
     #startButton {
+      text-align: left;
       border: none;
       color: white;
       background-color: blue;
@@ -25,6 +26,7 @@
       height: 100%;
       z-index: 4;
       font-size: 1rem;
+      font-family: "input-sans", sans-serif;
     }
 
     .menu {
@@ -89,7 +91,7 @@
     }
 
     .scrollable-content {
-      max-height: 65vh;
+      max-height: 60vh;
        /* Adjust the height based on your needs */
       overflow-y: auto;
     }
@@ -166,12 +168,13 @@
  </div>
 </div>
 
-<!-- <button id="startButton" onclick="startApplication()"> Unlayering 
+<button id="startButton" onclick="startApplication()"> Unlayering 
   <br>Narratives :
-  <br>Living Archive</button> -->
+  <br>Living Archive</button>
 
 <script src="p5.min.js"></script>
 <script>
+
   let motion = false;
   let ios = false;
   let r, g, b;
@@ -199,6 +202,10 @@
     document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
   }
 
+  function setStartButtonBackgroundColor() {
+    document.getElementById('startButton').style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+  }
+
   function requestDeviceMotionPermission() {
     if (typeof DeviceMotionEvent.requestPermission === 'function') {
       DeviceMotionEvent.requestPermission()
@@ -216,6 +223,7 @@
 
   function startApplication() {
     requestDeviceMotionPermission();
+    setStartButtonBackgroundColor(); // Set startButton background color
     // Hide the button after it's clicked
     document.getElementById('startButton').style.display = 'none';
   }
@@ -228,6 +236,7 @@
     b = random(0, 255);
     background(r, g, b);
     setBodyBackgroundColor(); // Set body background color
+    setStartButtonBackgroundColor();
   }
 
   function draw() {
