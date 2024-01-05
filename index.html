@@ -3,25 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://use.typekit.net/fzx3fof.css">
   <script type="text/javascript">
     var UserAgent = navigator.userAgent;
     if (UserAgent.match(/iPhone|Android|Windows CE|BlackBerry|Symbian|Windows Phone|webOS|Opera Mini|Opera Mobi|POLARIS|IEMobile|lgtelecom|nokia|SonyEricsson/i) != null || UserAgent.match(/LG|SAMSUNG|Samsung/) != null) { location.href = "index_mb.html"; /* 모바일 홈페이지 경로 */ }
 </script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Kenia&family=Oswald:wght@500&family=Sulphur+Point:wght@700&family=Teko:wght@500&display=swap');
+   
 
     body {
       background-color: blue;
       margin: 0;
       color: white;
-      font-family: Helvetica, Sans-Serif;
-      font-size: 1.5rem;
+      font-family: "input-sans", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 14rem;
     }
 
     .menu {
       margin-top: 1.5%;
       position: fixed;
-      text-align: center;
+      /* text-align: center; */
       left: 2%;
       white-space: nowrap;
      
@@ -29,7 +33,7 @@
     }
 
     .menu1, .menu2, .menu3 {
-      margin-top: 1.5%;
+      margin-top: 50%;
       position: fixed;
       text-align: center;
       white-space: nowrap;
@@ -84,7 +88,9 @@
 <body>
 
 <div class="menu">
-  Unlayering Narratives : Living Archive
+  Unlayering 
+  <br>Narratives :
+  <br>Living Archive
 </div>
 
 <div class="menu1" onclick="toggleBlurAndShowContent('syllabus')">
