@@ -108,10 +108,34 @@
       display: none;
       z-index: 3; /* Ensure draggable content is on top */
     }
+    /* Webkit 스크롤바 스타일링 */
+::-webkit-scrollbar {
+  width: 12px; /* 스크롤바의 너비 */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.4); /* 스크롤바 색상 */
+  border-radius: 6px; /* 스크롤바 모서리 둥글게 */
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0); /* 스크롤바 트랙 배경색 */
+}
+
+/* Firefox 스크롤바 스타일링 */
+/* Firefox에서는 -moz- 접두어를 사용합니다. */
+/* Firefox에서도 같은 모양의 스크롤바를 원한다면 이 룰셋을 사용하세요. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.5) rgba(0, 0, 0, 0);
+}
+   
+
 
     .scrollable-content {
       max-height: 75vh; /* Adjust the height based on your needs */
       overflow-y: auto;
+
     }
 
     .responsive-iframe {
