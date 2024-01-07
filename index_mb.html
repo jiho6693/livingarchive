@@ -20,7 +20,6 @@
       text-align: left;
       border: none;
       color: white;
-      background-color: blue;
       position: fixed;
       width:100%;
       height: 100%;
@@ -41,7 +40,7 @@
       z-index: 1; /* Ensure the menu is in front of the blurred canvas */
     }
 
-    .menu1, .menu2, .menu3 {
+    .menu1, .menu2, .menu3, .menu4, .menu5, .menu6 {
       font-size: 1rem;
       
       /* margin-top: 90%; */
@@ -55,18 +54,41 @@
 
     .menu1 {
       left: 5%;
-      top: 88%;
+      top: 77.5%;
     }
 
     .menu2 {
       left: 5%;
-      top: 91.5%;
+      top: 81%;
     }
 
     .menu3 {
       left: 5%;
-      top: 95%;
+      top: 84.5%;
     }
+
+    .menu4 {
+      left: 5%;
+      top: 88%;
+     
+    }
+
+    .menu5 {
+      left: 5%;
+      top: 91.5%;
+     
+    }
+
+    .menu6 {
+      left: 5%;
+      top: 95%;
+     
+    }
+
+    a:link, a:visited, a:hover, a:active {
+  text-decoration: none;
+  color:white;
+}
 
     #canvas-container {
       position: fixed;
@@ -79,7 +101,8 @@
       filter: blur(20px); /* Initialize with no blur */
     }
 
-    .syllabus, .schedule, .archive {
+    .syllabus, .schedule, .note, .drive, .arena, .archive {
+        font-size: 0.9rem;
       font-size: 0.9rem;
       white-space: pre-line;
       position: fixed;
@@ -96,6 +119,15 @@
        /* Adjust the height based on your needs */
       overflow-y: auto;
     }
+    .responsive-iframe {
+
+      margin: 0 auto;
+      height:70vh;
+      width: 80%;
+      display:block;
+
+}
+
   </style>
 </head>
 <body>
@@ -113,7 +145,19 @@
   Schedule
 </div>
 
-<div class="menu3" onclick="toggleBlurAndShowContent('archive')">
+<div class="menu3" onclick="toggleBlurAndShowContent('note')">
+  <a href="https://docs.google.com/document/d/1OupHNqDv42GhYiy05D_8RxsR-n5qqOokd-Fi-2pDwag/edit" target="_blank" rel="noopener noreferrer">Notepad</a>
+</div>
+
+<div class="menu4" >
+  <a href="https://drive.google.com/drive/folders/1geUaVKPk0TYkb2gXrlpDVVw-O90w8j7C?usp=drive_link" target="_blank" rel="noopener noreferrer">Drive</a>
+</div>
+
+<div class="menu5" >
+  <a href="https://www.are.na/so-jung-yoon/unlayering-narratives-living-archive" target="_blank" rel="noopener noreferrer" >Are.na</a>
+</div>
+
+<div class="menu6" onclick="toggleBlurAndShowContent('archive')">
   Archive
 </div>
 
@@ -122,7 +166,7 @@
 </div>
 
 <div class="syllabus" id="syllabus">
-  <div class="scrollable-content"> Course Information:
+  <div class="scrollable-content">Course Information:
 
     Wintersession 2024 / 3 Credits
     Course Number: DM 1850-101
@@ -154,18 +198,149 @@
     ● Learn practical tools and techniques for documenting, digitizing, and cataloging archives
     ● Explore the creative and research potential of archives as a medium for art work
     ● Develop digital skills and competencies for working with archival materials using various tools
+
+    Readings/References: 
+
+Osthoff, Simone. Performing the Archive: The Transformation of the Archive in Contemporary Art from Repository of Documents to Art Medium. London: Routledge, 2017.
+Verlag der Buchhandlung Walther Konig. Interarchive Hans-Peter Feldman: Archival Practices and Sites in the Contemporary Field of Art, 1999.
+Spieker, Sven. The Big Archive: Art From Bureaucracy, 2017.
+Sterling and Francine Clark Art Institute. What Is Research in the Visual Arts?: Obsession, Archive, Encounter. Clark Art Institute, 2009.
+Gassner, Hubertus. Deep Storage: Collecting, Storing and Archiving in Art.Prestel Pub, 1999.
+Vaknin, Judy. All This Stuff: Archiving the Artist. Libri Publishing, 2013.
+Merewether, Charles, ed. The Archive. London: Whitechapel; Cambridge, Mass.: MIT Press, 2006.
+
+
+Materials, Resources, Estimated Costs :
+
+This class will require a laptop (Mac or PC), Internet access via a web browser (Chrome), and image editing software. Access to at least one digital imaging device (mobile phone, digital camera, zoom, scan application, etc.) is requested but not necessary. If you don’t have access to either of these let us know as soon as possible so that we can work on finding you access. Estimated Costs ($100).
+
+Course Requirements :
+
+● Present and submit your work on time. 
+● Show up on time and prepare each week. 
+● Participate fully and be engaged during critiques, lectures, class conversations. 
+
+All assignments must be turned in on time and ready for critique at appointed times. Late assignments will automatically be reduced by one letter grade before being critiqued. Students are encouraged to re-do an assignment if they wish, but please speak to me before undertaking this. Please keep all work for the whole semester, as students will be asked to hand everything in at the end of the semester for re-evaluation. Students’ work will be handed back in the final week during individual meetings. The major individual student assignment will be the final project due on the last day of Winter session as a live demonstration.
+
+Grading Policy / Evaluation Criteria:
+
+40%
+Participation and engagement in class activities, discussions, and group critiques; communication via individual studio visits and google drive. Absence or lateness to class for any reason will affect grades.
+30%
+Conceptual development, experimentation, documentation, and communication of project assignments.
+30%
+Conceptual development, experimentation, prototyping/sketching in form, making, documentation, and communication of the final project.
+
+
+If you have more than two unexcused absences, you will not receive credit for the course. Please don’t hesitate to reach out with any questions or needs you may have.
+
+Policies and Expectations / Visions for the Learning Environment:
+
+● Equity / Inclusivity
+RISD is committed to Social Equality and Inclusion and has a newly created campus initiative to support this (SEI). Our intent is that students from all diverse backgrounds and perspectives will be well-served by this course, that students’ needs will be addressed both in and out of class, and that the diversity that students bring to this class be viewed as a resource, strength, and benefit. Our intent is to present materials and activities that are respectful of diversity: gender, sexual orientation, disability, age, socioeconomic status, ethnicity, race, culture, perspective, and other background characteristics. Your suggestions about how to improve the value of diversity in this course are encouraged and appreciated. Please let us know ways to improve the effectiveness of the course for you personally or for other students or student groups. See also: RISD’s non-discrimination policies on titleix.risd.edu
+
+● Students with Disabilities
+Rhode Island School of Design is committed to providing equal opportunity for all students. If you are a student with a disability that may require accommodations to complete the requirements of this class, I encourage you to discuss your learning needs with me during the first week of the term. Once an approval letter from the Office of Disability Support Services is submitted, accommodations will be provided as needed. For more information on how to receive accommodations, please contact Disability Support Services at 401 709-8460 or disabilitysupportservices@risd.edu.
+
+● Absence from class 
+Students should make every effort to avoid missing any class. This class is highly iterative and each class builds intentionally upon the conversations of the week before. In the case of illness or other special circumstances, please make every effort to let your instructor know as soon as possible and before the date in question. Two or more unexcused absences are to be understood as an open for a letter grade reduction and possible removal from the course. Three late arrivals count as an unexcused absence. Please see the full RISD Class Attendance policy.
+
+● Absence for Religious Holy days  
+RISD respects the religious beliefs of all members of the community, affirms their rights to observe significant religious holy days, and will make reasonable accommodations, upon request, for such observances. If one’s religious observance is in conflict with a class then the student should inform the instructor(s) of the class. If it is an academic experience or other school function but not a scheduled class, then the student should inform the person in charge. It is the student’s responsibility to make the necessary arrangements mutually agreed upon with the instructor(s).
+
+● Forms of Academic Misconduct 
+Academic misconduct compromises the academic integrity of the College and subverts the educational process. You can find RISD’s general Academic Code of Conduct linked here. For this class, primary, but not exclusive, kinds of such misconduct are:
+
+● Cheating 
+The use of unauthorized information, study aids or other materials, or unauthorized communication with, or copying from another student on papers, projects, tests, or other academic work. It is the responsibility of students to consult with their faculty concerning what materials and types of collaboration are permissible.
+
+● Plagiarism 
+The passing off of someone else’s ideas, writing, or work as one’s own is plagiarism. Appropriate methods and forms of attribution vary by discipline. Some courses will include instruction in appropriate conventions for citation and attribution within the field. Students are advised to seek out relevant guidelines on their own (the RISD Writing Center offers resources and guidance), to ask faculty when in doubt about standards, and to recognize that they are ultimately responsible for proper citation.
+
+● Falsification and Fabrication
+The attribution of information or material included in one’s work to a false or fabricated source, or the falsification or fabrication of the information or materials themselves.
+
+● Unauthorized Reuse
+The submission of substantially the same work to satisfy requirements for one course that has previously been submitted in satisfaction of the requirements for another course or that was created for another purpose, without permission of the faculty of the course for which the work is being submitted. Students are expected to create new work in specific response to each assignment unless expressly authorized to do otherwise.
+
+● Unfair Academic Advantage
+The theft, destruction, or defacement of, or other interference with, the work of other students for the purpose of gaining an academic advantage; the engagement in other activities that place other students at an academic disadvantage, such as theft, concealment, or alteration of needed resources or other materials; or other manipulation of the academic system in one’s favor.
+
   </div>
 </div>
 
-<div class="draggable-content schedule" id="schedule">
- <div class="scrollable-content"></div>
-  Schedule Content
+<div class="schedule" id="schedule">
+ <div class="scrollable-content">
+ Week 1		
+
+DAY1	1/8	Welcome :> !
+		- Course Introduction
+		- Lecture 1: What is Archive? Can we tweak the archive?
+		- Workshop 1
+
+DAY2	1/9	
+		- Workshop 2
+		- Introduce Project 1
+
+DAY3	1/10	
+		- Introduce yourself
+		- Lecture 2 : How to archive?
+		- Small group meetings for Project 1
+
+    Week2		
+
+DAY4	1/16	
+		- Project 1 Presentation
+		- Introduce Project 2
+
+    Week3		
+
+DAY5	1/22	
+		- Guest Lecture In-person (yay!)
+		- Lecture 3 : Revealing the Unseen Narrative
+		- Workshop 3
+
+DAY6	1/23	
+		- Field Trip to Fleet Library Special Collection
+		- Lecture 4 : Creative archive
+		- Workshop 4
+
+DAY7	1/24	
+		- Field Trip to RISD Museum 
+		- Individual meeting
+
+Week4		
+
+DAY8	1/29	
+		- Project 2 Presentation
+		- Lecture 5 : Unlayering Narratives
+		- Introduce Project 3
+
+DAY9	1/30	
+		- Share idea for Project 3
+		- Individual meeting
+
+Week5		
+
+DAY10	2/5	
+		- Studio Working + Individual meeting
+
+DAY11	2/6	
+		- Studio Working + Individual meeting
+		- Installation
+
+DAY12	2/7	
+		- Project 3 Presentation
+- Final documentation due
+
  </div>
 </div>
 
-<div class="draggable-content archive" id="archive">
+
+
+
+<div class="archive" id="archive">
  <div class="scrollable-content"></div>
-  Achedule Content
  </div>
 </div>
 

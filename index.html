@@ -113,6 +113,16 @@
       max-height: 75vh; /* Adjust the height based on your needs */
       overflow-y: auto;
     }
+
+    .responsive-iframe {
+
+  margin: 0 auto;
+  height:70vh;
+  width: 80%;
+  display:block;
+
+}
+
   </style>
 </head>
 <body>
@@ -132,7 +142,7 @@
 </div>
 
 <div class="menu3" onclick="toggleBlurAndShowContent('note')">
-  Note
+  Notepad
 </div>
 
 <div class="menu4" >
@@ -326,7 +336,7 @@ DAY12	2/7
 
 <div class="note" id="note">
   <div class="scrollable-content"></div>
-  <iframe src="https://docs.google.com/document/d/1OupHNqDv42GhYiy05D_8RxsR-n5qqOokd-Fi-2pDwag/edit?usp=sharing" width="100%" height="500px" ></iframe>
+  <iframe class="responsive-iframe" src="https://docs.google.com/document/d/1OupHNqDv42GhYiy05D_8RxsR-n5qqOokd-Fi-2pDwag/edit?usp=sharing?&amp;range=false&amp;range=false&amp;rm=minimal&amp;single=true&amp;"></iframe>
   </div>
  </div>
 
@@ -335,7 +345,7 @@ DAY12	2/7
  <div class="scrollable-content"></div>
  </div>
 </div>
-
+ 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
 <script>
   let motion = false;
